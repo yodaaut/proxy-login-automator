@@ -1,5 +1,13 @@
 #!/usr/bin/env node
 'use strict';
+var npid = require('npid');
+try {
+  var pid = npid.create('/var/run/proxy-login-automator.pid');
+  pid.removeOnExit();
+} catch (err) {
+  console.log(err);
+  process.exit(1);
+}
 var net = require('net'), tls = require('tls');
 var HTTPParser = process.binding('http_parser').HTTPParser;
 var http = require('http'), https = require('https');
