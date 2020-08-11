@@ -135,7 +135,9 @@ function createPortForwarder(local_host, local_port, remote_host, remote_port, b
           if (parser.__is_headers_complete) {
             buf_ary.push(buf.slice(unsavedStart, buf[i - 1] === CR ? i - 1 : i));
             //console.log('insert auth header');
-            buf_ary.push(buf_proxy_basic_auth);
+            if (buf_proxy_basic_auth) {
+              buf_ary.push(buf_proxy_basic_auth);
+            }
             buf_ary.push(state === STATE_FOUND_LF_CR ? BUF_CR_LF_CR_LF : BUF_LF_LF);
 
             // stop intercepting packets if encountered TLS and WebSocket handshake
