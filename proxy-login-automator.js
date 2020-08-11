@@ -26,7 +26,7 @@ function main() {
   cfg.ignore_https_cert = cfg.ignore_https_cert === 'true';
   cfg.are_remotes_in_pac_https = cfg.are_remotes_in_pac_https === 'true';
 
-  if (!cfg.local_host || !cfg.local_port || !cfg.remote_host || !cfg.remote_port || !cfg.usr || !cfg.pwd)
+  if (!cfg.local_host || !cfg.local_port || !cfg.remote_host || !cfg.remote_port)
     return console.error('Usage of parameters:\n'
       + '-local_host host\t' + 'Listening address. Default: localhost. (* means all interfaces)\n'
       + '-local_port port\t' + 'Listening port. Default: 8080\n'
